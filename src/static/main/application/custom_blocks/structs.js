@@ -47,8 +47,17 @@ var customBlocks = {
       "message0": "%1",
       "args0": [
         {
-          "type": "field_input",
+          "type": "field_dropdown",
           "name": "COMPONENT_INSTANCE_SELECT",
+          "options": [
+            ["Motor", "MOTOR"],
+            ["Screen", "SCREEN"],
+            ["LED", "LED"],
+            ["Buzzer", "BUZZER"],
+            ["Joystick", "JOYSTICK"],
+            ["Laser", "LASER"],
+            ["Relay", "RELAY"]
+          ]
         }
       ],
       "inputsInline": true,
