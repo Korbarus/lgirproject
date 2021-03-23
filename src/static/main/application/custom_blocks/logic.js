@@ -15,7 +15,7 @@ Blockly.Blocks["set"] = {
   }
 };
 
-//Appending the Set block to the workspace
+//Appending the Value_of block to the workspace
 // Block Definition
 Blockly.Blocks["value_of"] = {
   init: function() {
@@ -77,6 +77,15 @@ Blockly.Blocks['output_component'] = {
           thisBlock.getFieldValue('VAR'));
     });
   }
+};
+
+// Block Definition
+Blockly.JavaScript['block_type'] = function(block) {
+  var dropdown_speed = block.getFieldValue('speed');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 // Block Definition
@@ -149,16 +158,17 @@ Blockly.Python['set'] = function(block) {
   };
 
 // Block Definition
-  Blockly.Blocks['Speed'] =  {
-    innit: function(){
-      var speed_dropdown = block.getFieldValue('SPEED_SELECT');
-      this.setPreviousStatement(true, "null");
-      this.setNextStatement(true, "null");
-      this.setColour(60);
-    }
-  };
+Blockly.Blocks['speed'] = {
+  init: function() {
+    this.jsonInit(customBlocks.speed);
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return 'Add a number to variable "%1".';
+    });
+  }
+};
 // JavaScript Gen Stub
-  Blockly.JavaScript['Speed'] = function(block) {
+  Blockly.JavaScript['speed'] = function(block) {
     var speed_dropdown = block.getFieldValue('SPEED_SELECT');
     var value = Blockly.JavaScript.valueToCode(speed_dropdown);
     this.setPreviousStatement(true, "null");
@@ -167,7 +177,7 @@ Blockly.Python['set'] = function(block) {
   };
 
   // Python Gen Stub
-  Blockly.Python['Speed'] = function(block) {
+  Blockly.Python['speed'] = function(block) {
     var speed_dropdown = block.getFieldValue('SPEED_SELECT');
     var value = Blockly.Python.valueToCode(speed_dropdown);
     this.setPreviousStatement(true, "null");
@@ -176,7 +186,7 @@ Blockly.Python['set'] = function(block) {
   };
 
 // Block Definition
-  Blockly.Blocks['Wait'] =  {
+  Blockly.Blocks['wait'] =  {
     innit: function(){
       var wait_time = block.getFieldValue('WAIT_TIME');
       this.setPreviousStatement(true, "null");
@@ -185,14 +195,14 @@ Blockly.Python['set'] = function(block) {
     }
   };
 // JavaScript Gen stub
-  Blockly.JavaScript['Wait'] = function(block) {
+  Blockly.JavaScript['wait'] = function(block) {
     var delay_dropdown = block.getFieldValue('WAIT_TIME')
     var wait_code = 'Wait(' + delay_dropdown + ');\n';
     return wait_code;
   };
   
 // Python Gen Stub
-  Blockly.Python['Wait'] = function(block) {
+  Blockly.Python['wait'] = function(block) {
     var delay_dropdown = block.getFieldValue('WAIT_TIME')
     var wait_code = 'Wait(' + delay_dropdown + ');\n';
     return wait_code;

@@ -149,32 +149,27 @@ var customBlocks = {
     "helpUrl": ""
   },
 
-  "Speed" : {
-    "type": "field_dropdown",
+  "speed" : {
+    "type": "speed",
     "message0": "%1",
     "args0": [
-        {
-        "type": "speed_dropdown",
+      {
+        "type": "field_dropdown",
         "name": "SPEED_SELECT",
         "options": [
-          [
-            "Fast"
-          ],
-          [
-            "Medium"
-          ],
-          [
-            "Slow"
-          ]
+          ["Slow", "20"],
+          ["Medium", "50"],
+          ["Fast", "80"]
         ]
       }
     ],
     "inputsInline": true,
-    "output": "speed",
-    "colour": 180,
+    "output": "component",
+    "colour": 60,
     "tooltip": "",
     "helpUrl": ""
-  },
+},
+  
 
   "wait" : {
     "type": "wait",
