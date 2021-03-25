@@ -186,14 +186,15 @@ Blockly.Blocks['speed'] = {
   };
 
 // Block Definition
-  Blockly.Blocks['wait'] =  {
-    innit: function(){
-      var wait_time = block.getFieldValue('WAIT_TIME');
-      this.setPreviousStatement(true, "null");
-      this.setNextStatement(true, "null");
-      this.setColour(60);
-    }
-  };
+Blockly.Blocks['wait'] = {
+  init: function() {
+    this.jsonInit(customBlocks.wait);
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return 'Add a number to variable "%1".';
+    });
+  }
+};
 // JavaScript Gen stub
   Blockly.JavaScript['wait'] = function(block) {
     var delay_dropdown = block.getFieldValue('WAIT_TIME')
@@ -210,16 +211,18 @@ Blockly.Blocks['speed'] = {
 
 
 // Block Definition
-Blockly.Blocks['ON or OFF'] =  {
-  innit: function(){
-    var state_dropdown = block.getFieldValue('STATE_SELECT');
-    this.setPreviousStatement(true, "null");
-    this.setNextStatement(true, "null");
-    this.setColour(60);
+Blockly.Blocks['ON_or_OFF'] = {
+  init: function() {
+    this.jsonInit(customBlocks.ON_or_OFF);
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return 'Returns an on, off, or half signal.';
+    });
   }
 };
+
 // JavaScript Gen Stub
-Blockly.JavaScript['On or OFF'] = function(block) {
+Blockly.JavaScript['ON_or_OFF'] = function(block) {
   var state_dropdown = block.getFieldValue('SPEED_SELECT');
   var value = Blockly.JavaScript.valueToCode(state_dropdown);
   var x;
@@ -237,7 +240,7 @@ Blockly.JavaScript['On or OFF'] = function(block) {
 };
 
 // Python Gen Stub
-Blockly.Python['On or OFF'] = function(block) {
+Blockly.Python['ON_or_OFF'] = function(block) {
   var state_dropdown = block.getFieldValue('SPEED_SELECT');
   var value = Blockly.Python.valueToCode(state_dropdown);
   var x;
@@ -255,12 +258,13 @@ Blockly.Python['On or OFF'] = function(block) {
 };
 
 // Block Definition
-Blockly.Blocks['Brightness'] =  {
-  init: function(){
-    var light_dropdown = block.getFieldValue('LIGHT_SELECT');
-    this.setPreviousStatement(true, "null");
-    this.setNextStatement(true, "null");
-    this.setColour(60);
+Blockly.Blocks['Brightness'] = {
+  init: function() {
+    this.jsonInit(customBlocks.Brightness);
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return 'Sets the brightness of a LED component.';
+    });
   }
 };
 // JavaScript Gen Stub

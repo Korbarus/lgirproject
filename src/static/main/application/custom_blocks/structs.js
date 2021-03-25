@@ -19,10 +19,6 @@ var customBlocks = {
     "helpUrl": ""
   },
 
-  
-
-
-
   "input_component" : {
       "type": "input_component",
       "message0": "bucket %1",
@@ -81,6 +77,7 @@ var customBlocks = {
       {
         "type": "input_value",
         "name": "value",
+        "check": ["component","number"]
       }
     ],
     "inputsInline": true,
@@ -205,22 +202,22 @@ var customBlocks = {
     "helpUrl": ""
 },
 
-"ON or OFF" : {
-  "type": "field_dropdown",
+"ON_or_OFF" : {
+  "type": "ON_or_OFF",
   "message0": "%1",
   "args0": [
       {
-      "type": "state_dropdown",
+      "type": "field_dropdown",
       "name": "STATE_SELECT",
       "options": [
         [
-          "ON"
+          "ON", "100"
         ],
         [
-          "OFF"
+          "OFF", "0"
         ],
         [
-          "HALF"
+          "HALF", "50"
         ]
       ]
     }
@@ -237,14 +234,14 @@ var customBlocks = {
   "message0": "%1",
   "args0": [
       {
-      "type": "light_dropdown",
+      "type": "field_dropdown",
       "name": "LIGHT_SELECT",
       "options": [
         [
-          "BRIGHT"
+          "BRIGHT", "80"
         ],
         [
-          "DIM"
+          "DIM", "20"
         ]
       ]
     }
