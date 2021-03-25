@@ -61,8 +61,7 @@ Blockly.Blocks['pin_component'] = {
     this.jsonInit(customBlocks.pin_component);
     var thisBlock = this;
     this.setTooltip(function() {
-      return 'Add a number to variable "%1".'.replace('%1',
-          thisBlock.getFieldValue('VAR'));
+      return 'This is a pin on your virtual circuitboard.';
     });
   }
 };
@@ -108,11 +107,11 @@ Blockly.JavaScript['set'] = function(block) {
   return code;
 };
 
-// Python Gen Stub
+// Python Gen Stub - COMPLETE
 Blockly.Python['set'] = function(block) {
   var value_component = Blockly.Python.valueToCode(block, 'COMPONENT', Blockly.Python.ORDER_ATOMIC);
   var value_value = Blockly.Python.valueToCode(block, 'VALUE', Blockly.Python.ORDER_ATOMIC);
-  var code = "..."
+  var code = value_component + " = " + value_value;
   return code;
 };
   
@@ -163,7 +162,7 @@ Blockly.Blocks['speed'] = {
     this.jsonInit(customBlocks.speed);
     var thisBlock = this;
     this.setTooltip(function() {
-      return 'Add a number to variable "%1".';
+      return 'Sets the speed of a component Used with motors.';
     });
   }
 };
@@ -173,44 +172,65 @@ Blockly.Blocks['speed'] = {
     var value = Blockly.JavaScript.valueToCode(speed_dropdown);
     this.setPreviousStatement(true, "null");
     this.setNextStatement(true, "null");
-    return value;
+
+    if(value = "Fast"){
+      x = 80;
+    }
+    else if(value = "Medium"){
+      x = 50;
+    }
+    else{
+      x = 20;
+    }
+  
+    return x;
   };
 
-  // Python Gen Stub
+  // Python Gen Stub - COMPLETE
   Blockly.Python['speed'] = function(block) {
     var speed_dropdown = block.getFieldValue('SPEED_SELECT');
     var value = Blockly.Python.valueToCode(speed_dropdown);
     this.setPreviousStatement(true, "null");
     this.setNextStatement(true, "null");
-    return value;
+    if(value = "Fast"){
+      x = 80;
+    }
+    else if(value = "Medium"){
+      x = 50;
+    }
+    else{
+      x = 20;
+    }
+  
+    return x;
   };
 
-// Block Definition
+// Block Definition - COMPLETE
 Blockly.Blocks['wait'] = {
   init: function() {
     this.jsonInit(customBlocks.wait);
     var thisBlock = this;
     this.setTooltip(function() {
-      return 'Add a number to variable "%1".';
+      return 'Tells the component to sleep for a specified number of seconds.';
     });
   }
 };
-// JavaScript Gen stub
+// JavaScript Gen stub - COMPLETE
   Blockly.JavaScript['wait'] = function(block) {
     var delay_dropdown = block.getFieldValue('WAIT_TIME')
     var wait_code = 'Wait(' + delay_dropdown + ');\n';
     return wait_code;
   };
   
-// Python Gen Stub
+// Python Gen Stub - COMPLETE
   Blockly.Python['wait'] = function(block) {
     var delay_dropdown = block.getFieldValue('WAIT_TIME')
-    var wait_code = 'Wait(' + delay_dropdown + ');\n';
+    var wait_code = 'time.sleep(' + delay_dropdown + ');\n';
     return wait_code;
   };
 
 
-// Block Definition
+// Block Definition - COMPLETE
 Blockly.Blocks['ON_or_OFF'] = {
   init: function() {
     this.jsonInit(customBlocks.ON_or_OFF);
@@ -221,7 +241,7 @@ Blockly.Blocks['ON_or_OFF'] = {
   }
 };
 
-// JavaScript Gen Stub
+// JavaScript Gen Stub - COMPLETE
 Blockly.JavaScript['ON_or_OFF'] = function(block) {
   var state_dropdown = block.getFieldValue('SPEED_SELECT');
   var value = Blockly.JavaScript.valueToCode(state_dropdown);
@@ -239,7 +259,7 @@ Blockly.JavaScript['ON_or_OFF'] = function(block) {
   return x;
 };
 
-// Python Gen Stub
+// Python Gen Stub - COMPLETE
 Blockly.Python['ON_or_OFF'] = function(block) {
   var state_dropdown = block.getFieldValue('SPEED_SELECT');
   var value = Blockly.Python.valueToCode(state_dropdown);
@@ -257,7 +277,7 @@ Blockly.Python['ON_or_OFF'] = function(block) {
   return x;
 };
 
-// Block Definition
+// Block Definition - COMPLETE
 Blockly.Blocks['Brightness'] = {
   init: function() {
     this.jsonInit(customBlocks.Brightness);
@@ -267,7 +287,7 @@ Blockly.Blocks['Brightness'] = {
     });
   }
 };
-// JavaScript Gen Stub
+// JavaScript Gen Stub - COMPLETE
 Blockly.JavaScript['Brightness'] = function(block) {
   var light_dropdown = block.getFieldValue('LIGHT_SELECT');
   var value = Blockly.JavaScript.valueToCode(light_dropdown);
@@ -281,7 +301,7 @@ Blockly.JavaScript['Brightness'] = function(block) {
   return x;
 };
 
-// Python Gen Stub
+// Python Gen Stub - COMPLETE
 Blockly.Python['Brightness'] = function(block) {
   var light_dropdown = block.getFieldValue('LIGHT_SELECT');
   var value = Blockly.Python.valueToCode(light_dropdown);
@@ -299,7 +319,7 @@ Blockly.Python['Brightness'] = function(block) {
 };
 
 
-
+/*
 Blockly.Blocks['0 to 100'] = {
   init: function() {
     var validator = function(newValue) {
@@ -312,5 +332,5 @@ Blockly.Blocks['0 to 100'] = {
     this.setConstraints(0, 100);
   }
 };
-
+*/
 

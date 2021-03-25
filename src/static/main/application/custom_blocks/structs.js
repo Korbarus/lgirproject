@@ -77,7 +77,7 @@ var customBlocks = {
       {
         "type": "input_value",
         "name": "value",
-        "check": ["component","number"]
+        "check": ["component","Number","ON_or_OFF","speed","Brightness"]
       }
     ],
     "inputsInline": true,
@@ -196,7 +196,7 @@ var customBlocks = {
       }
     ],
     "inputsInline": true,
-    "output": "waiting",
+    "output": "wait",
     "colour": 180,
     "tooltip": "",
     "helpUrl": ""
@@ -223,7 +223,7 @@ var customBlocks = {
     }
   ],
   "inputsInline": true,
-  "output": "STATE",
+  "output": "ON_or_OFF",
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
@@ -247,7 +247,7 @@ var customBlocks = {
     }
   ],
   "inputsInline": true,
-  "output": "LIGHT",
+  "output": "Brightness",
   "colour": 180,
   "tooltip": "",
   "helpUrl": ""
